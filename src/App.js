@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react'
+import Hero from './Hero/Hero'
+import ListMovies from './ListMovies/ListMovies.js'
+// import Nominations from 'Nominations.js'
+import axios from 'axios'
 import './App.css';
 
 function App() {
+
+  const [searchString, setSearchString] = useState("")
+  const [data, setData] = useState([])
+  console.log(data)
+
+  useEffect(() => {
+    axios.get(`http://www.omdbapi.com/?apikey=e52cb6b&s=${searchString}`)
+    .then(resp => setData(resp.data.Search))
+    .catch(e => console.log(e))
+  }, [searchString]) //componentDidUpdate everytime we change searchString
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Hero
+        searchString = {searchString}
+        setSearchString ={setSearchString}
+        placeholder = "Enter Movie search here" />
+      <ListMovies
+        data = {data}
+      />
+      {/* <Nominations /> */}
     </div>
   );
 }
