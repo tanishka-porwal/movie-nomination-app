@@ -1,6 +1,14 @@
 h5 {
-    color: #EE7879;
+    color: #2A3166;
 }
 p{
-    color: #EE7879;
+    color: #2A3166;
+}
+img {
+    border-radius: 5px 5px 0 0;
+}
+.card-design{
+    background-color: #CAE7DF;
+    box-shadow: 0 4px 8px 0 rgba(253, 253, 253, 0.2);
+    border-radius: 5px;
 }

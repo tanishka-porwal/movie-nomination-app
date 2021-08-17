@@ -1,20 +1,35 @@
 import React from 'react'
 import Card from '../Card/Card'
+import './ListMovies.css'
 
-const ListMovies = ({data}) => {
+const ListMovies = ({data, nominated, setNominated}) => {
+
+    function handleNominations(imdbID){
+        let copyNominated = [...nominated]
+
+        if(!nominated.includes(imdbID)) copyNominated.push(imdbID)
+        setNominated(copyNominated)
+    }
+
     let movies = data && data.map(i => {
         return (
-            <div>
+            <div className="cardcontainer">
                 <Card 
                 title = {i.Title}
-                year = {i.Year}
-                poster = {i.Poster} />
+                year = {parseInt(i.Year)}
+                poster = {i.Poster}
+                alt = {i.Title} 
+                cardDesign = "card-design"
+                />
+                <button disabled = {nominated.includes(i.imdbID)} onClick ={()=> handleNominations(i.imdbID)}>
+                {nominated.includes(i.imdbID)? 'Nominated' : 'Nominate'}</button>
             </div>
         )
     })
 
     return (
-        <div>
+        <div className= "moviescontainer">
+            <h3>List of Movies</h3>
             {movies}
         </div>
     )

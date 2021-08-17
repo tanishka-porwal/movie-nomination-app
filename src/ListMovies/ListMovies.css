@@ -1,0 +1,16 @@
+.moviescontainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardcontainer{
+    margin: 50px
+    
+}
+h3 {
+    color: #CAE7DF;
+}
+button{
+    background-color: #CAE7DF;
+    color: #2A3166;
+}
+

@@ -1,4 +1,7 @@
 input {
     align-items: center;
-    padding: 10;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 50%;
 }
