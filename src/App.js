@@ -13,7 +13,9 @@ function App() {
   console.log(data)
   const [nominated, setNominated] = useState([])
   console.log(nominated, "nominated")
-//through expressBackend
+
+  //through expressBackend
+
   // useEffect(() => {
   //   axios.get(`http://localhost:4200/getMovies?q=${searchString}`)
   //   //axios.get(`http://www.omdbapi.com/?apikey=e52cb6b&s=${searchString}`)
@@ -33,6 +35,13 @@ function App() {
     })
     .catch(e => console.log(e))
   }, [searchString]) //componentDidUpdate everytime we change searchString
+
+  //when app starts we want to fetch database and see if there are any nominated movies and we want to preload it
+  useEffect(() => {
+    axios.get(`http://localhost:4001/v1/nominations/getnominations`)
+    .then(i => console.log(i))
+    .catch(e => console.log(e))
+  }, []) 
   
   return (
     <div className = "App">

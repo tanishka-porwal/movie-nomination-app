@@ -1,15 +1,24 @@
-import React from 'react'
+import axios from 'axios'
+import React, {useEffect} from 'react'
 import Card from '../Card/Card'
 import './ListMovies.css'
 
+
 const ListMovies = ({data, nominated, setNominated}) => {
 
-    function handleNominations(imdbID){
+    function handleNominations(imdbID){           
         let copyNominated = [...nominated]
 
         if(!nominated.includes(imdbID)) copyNominated.push(imdbID)
         setNominated(copyNominated)
+
+        //set in mongoDB
+        axios.post(`http://localhost:4001/v1/nominations/setNominations?nominatedMovie=${imdbID}`)
+        .then(i => console.log(i))
+        .catch(e => console.log(e))
+
     }
+
 
     let movies = data && data.map(i => {
         return (
