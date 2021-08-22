@@ -1,16 +1,23 @@
-.moviescontainer {
-    display: flex;
-    flex-wrap: wrap;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 400px;
+    column-gap: 10px;
+}
+.grid-item{
+ display: contents;
 }
 .cardcontainer{
-    margin: 50px
-    
+    margin: 50px;
 }
 h3 {
-    color: #CAE7DF;
+    color: #2A3166;
+    text-align: center;
 }
 button{
     background-color: #CAE7DF;
     color: #2A3166;
+    padding: 5px;
+    margin: 5px;
 }
 

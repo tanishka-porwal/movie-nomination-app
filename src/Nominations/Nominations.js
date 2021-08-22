@@ -32,7 +32,11 @@ const Nominations = ({data, nominated, setNominated}) => {
     return (
         <div>
             <h3>Nominate Movies</h3>
-        {nominatedMovies}
+            <div className= "grid-container">
+                <div className= "grid-item">
+                    {nominatedMovies}
+                </div>
+            </div>
         </div>
     )
 }

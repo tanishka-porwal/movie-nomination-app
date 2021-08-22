@@ -37,9 +37,13 @@ const ListMovies = ({data, nominated, setNominated}) => {
     })
 
     return (
-        <div className= "moviescontainer">
+        <div>
             <h3>List of Movies</h3>
-            {movies}
+            <div className= "grid-container">
+               <div className= "grid-item">
+                    {movies}
+                </div> 
+            </div>
         </div>
     )
     
